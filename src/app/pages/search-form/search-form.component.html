@@ -1,0 +1,53 @@
+<form nz-form [formGroup]="validateForm" class="ant-advanced-search-form">
+  <!-- 复选框 -->
+  <!--<nz-checkbox-wrapper style="width: 100%;" (nzOnChange)="log($event)">-->
+    <!--<div nz-row>-->
+      <!--<div nz-col nzSpan="8"><label nz-checkbox nzValue="A" [ngModel]="true">A</label></div>-->
+      <!--<div nz-col nzSpan="8"><label nz-checkbox nzValue="B">B</label></div>-->
+      <!--<div nz-col nzSpan="8"><label nz-checkbox nzValue="C">C</label></div>-->
+      <!--<div nz-col nzSpan="8"><label nz-checkbox nzValue="D">D</label></div>-->
+      <!--<div nz-col nzSpan="8"><label nz-checkbox nzValue="E">E</label></div>-->
+    <!--</div>-->
+  <!--</nz-checkbox-wrapper>-->
+  <!--单选框-->
+  <!--<div style="margin-top:16px;">-->
+    <!--<nz-radio-group [(ngModel)]="radioValue">-->
+      <!--<label nz-radio-button nzValue="A">Hangzhou</label>-->
+      <!--<label nz-radio-button nzValue="B" nzDisabled>Shanghai</label>-->
+      <!--<label nz-radio-button nzValue="C">Beijing</label>-->
+      <!--<label nz-radio-button nzValue="D">Chengdu</label>-->
+    <!--</nz-radio-group>-->
+  <!--</div>-->
+  <!--选择器-->
+  <!--<nz-select [nzMaxMultipleCount]="3" style="width: 100%" nzMode="multiple" nzPlaceHolder="Please select" [(ngModel)]="listOfSelectedValue">-->
+    <!--<nz-option *ngFor="let option of listOfOption" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>-->
+  <!--</nz-select>-->
+  <!--滑动输入-->
+  <!--<nz-slider [nzDefaultValue]="30" [nzDisabled]="disabled"></nz-slider>-->
+  <!--<nz-slider nzRange [nzDefaultValue]="[20, 50]" [nzDisabled]="disabled"></nz-slider>-->
+  <!--Disabled: <nz-switch nzSize="small" [(ngModel)]="disabled"></nz-switch>-->
+
+  <div nz-row [nzGutter]="24">
+    <div nz-col [nzSpan]="8" *ngFor="let control of controlArray" [style.display]="control.show?'block':'none'">
+      <nz-form-item nzFlex>
+        <nz-form-label [nzFor]="'field'+control.index">Field {{control.index}}</nz-form-label>
+        <nz-form-control>
+          <input nz-input placeholder="placeholder" [formControlName]="'field'+control.index" [attr.id]="'field'+control.index">
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col [nzSpan]="24" style="text-align: right;">
+      <button nz-button [nzType]="'primary'">Search</button>
+      <button nz-button (click)="resetForm()">Clear</button>
+      <a style="margin-left:8px;font-size:12px;" (click)="toggleCollapse()">
+        Collapse
+        <i nz-icon [type]="isCollapse?'down':'up'"></i>
+      </a>
+    </div>
+  </div>
+</form>
+<!--<div class="search-result-list">-->
+  <!--Search Result List-->
+<!--</div>-->
