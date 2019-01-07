@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsCardComponent implements OnInit {
 
-  array = [ 1, 2, 3, 4 ];
+  array = [ 1, 2, 3, 4, 1, 2, 3, 4 ];
 
   constructor() { }
 
