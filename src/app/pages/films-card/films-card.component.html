@@ -1,6 +1,14 @@
-<nz-card nzHoverable style="margin:3px;width:162px;float:left;max-width: 45%;" [nzCover]="coverTemplate"  *ngFor="let index of array" routerLink="/details/1">
-  <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
-</nz-card>
-<ng-template #coverTemplate>
-  <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"/>
-</ng-template>
+<!--<div *ngFor="let subject of card?.data">-->
+<!--<nz-card nzHoverable style="margin:3px;width:152px;float:left;max-width: 31%;height: 260px;" [nzCover]="coverTemplate"-->
+<!--routerLink="/details/1">-->
+<!--<nz-card-meta style="height: 65px;padding: 1px;" nzTitle="{{subject.subject_title}}" title="{{subject.subject_title}}" nzDescription="{{subject.subject_genres}}"></nz-card-meta>-->
+<!--</nz-card>-->
+<!--<ng-template #coverTemplate>-->
+<!--<img alt="example" src="{{subject.subject_images}}" style="width:100%;height: 200px;"/>-->
+<!--</ng-template>-->
+<!--<div>-->
+<div *ngFor="let subject of card?.data" style="height: 252px;width:140px;max-width: 33%;float: left;padding: 3px;display: block;overflow: hidden;">
+  <div><img alt="example" src="{{subject.subject_images}}" style="float:left;width:100%;height: 190px;padding: 5px;"/></div>
+  <div><h4 style="width: 100%;height:24px;display: block;overflow: hidden;padding: 5px;">{{subject.subject_title}}</h4></div>
+  <div><span style="width: 100%;height:24px;display: block;overflow: hidden;padding: 5px;">{{subject.subject_genres}}</span></div>
+</div>

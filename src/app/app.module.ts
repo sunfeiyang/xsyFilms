@@ -20,6 +20,14 @@ import { DetailsComponent } from './details/details.component';
 import { ListComponent } from './list/list.component';
 import { RankComponent } from './rank/rank.component';
 import { CardComponent } from './pages/card/card.component';
+import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
+import { PhotosComponent } from './pages/photos/photos.component';
+import { NewMoviesComponent } from './pages/new-movies/new-movies.component';
+import { InTheatersComponent } from './pages/in-theaters/in-theaters.component';
+import { RatComponent } from './pages/rat/rat.component';
+import { Top250Component } from './pages/top250/top250.component';
+import { USBoxComponent } from './pages/usbox/usbox.component';
+import { VideoComponent } from './pages/video/video.component';
 
 registerLocaleData(zh);
 
@@ -36,7 +44,15 @@ registerLocaleData(zh);
     DetailsComponent,
     ListComponent,
     RankComponent,
-    CardComponent
+    CardComponent,
+    ComingSoonComponent,
+    PhotosComponent,
+    NewMoviesComponent,
+    InTheatersComponent,
+    RatComponent,
+    Top250Component,
+    USBoxComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,

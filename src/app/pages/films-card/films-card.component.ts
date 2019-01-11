@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-films-card',
@@ -7,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsCardComponent implements OnInit {
 
-  array = [ 1, 2, 3, 4, 1, 2, 3, 4 ];
+  card: Result;
 
-  constructor() { }
+  url = '/yy/getinTheaters?count=20&start=0';
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.http.get(this.url).subscribe(res => {
+      this.card = <Result>res;
+    });
   }
 
+}
+
+export class Result {
+  code: number;
+  msg: String;
+  data: JSON;
 }
