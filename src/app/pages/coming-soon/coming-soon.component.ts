@@ -2,21 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-weekly',
-  templateUrl: './weekly.component.html',
-  styleUrls: ['./weekly.component.css']
+  selector: 'app-coming-soon',
+  templateUrl: './coming-soon.component.html',
+  styleUrls: ['./coming-soon.component.css']
 })
-export class WeeklyComponent implements OnInit {
+export class ComingSoonComponent implements OnInit {
 
-  weekly: Result;
+  comingSoon: Result;
 
-  url = '/yy/getweekly';
+  url = '/yy/getcomingsoon?count=20&start=0';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get(this.url).subscribe(res => {
-      this.weekly = <Result>res;
+      this.comingSoon = <Result>res;
     });
   }
 

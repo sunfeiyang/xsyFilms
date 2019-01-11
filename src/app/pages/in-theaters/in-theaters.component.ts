@@ -2,21 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-weekly',
-  templateUrl: './weekly.component.html',
-  styleUrls: ['./weekly.component.css']
+  selector: 'app-in-theaters',
+  templateUrl: './in-theaters.component.html',
+  styleUrls: ['./in-theaters.component.css']
 })
-export class WeeklyComponent implements OnInit {
+export class InTheatersComponent implements OnInit {
 
-  weekly: Result;
+  inTheaters: Result;
 
-  url = '/yy/getweekly';
+  url = '/yy/getinTheaters?count=20&start=0';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get(this.url).subscribe(res => {
-      this.weekly = <Result>res;
+      this.inTheaters = <Result>res;
     });
   }
 

@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-weekly',
-  templateUrl: './weekly.component.html',
-  styleUrls: ['./weekly.component.css']
+  selector: 'app-usbox',
+  templateUrl: './usbox.component.html',
+  styleUrls: ['./usbox.component.css']
 })
-export class WeeklyComponent implements OnInit {
+export class USBoxComponent implements OnInit {
 
   weekly: Result;
 
-  url = '/yy/getweekly';
+  url = '/yy/getusbox';
 
   constructor(private http: HttpClient) { }
 
