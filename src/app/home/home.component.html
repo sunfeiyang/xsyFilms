@@ -5,18 +5,19 @@
     <div class="col-md-9">
       <nz-divider nzText="正在热映" nzOrientation="left"></nz-divider>
       <app-in-theaters></app-in-theaters>
-      <div style="width: 100%;height: 25px;"><span routerLink="/list/1" style="float: right;cursor:pointer;">更多>></span></div>
+      <div style="width: 100%;height: 25px;"><span routerLink="/list/inTheaters" style="float: right;cursor:pointer;">更多>></span></div>
 
-      <nz-divider nzText="即将上映" nzOrientation="left"></nz-divider>
+      <nz-divider nzText="即将上映" nzOrientation="left" style="margin-top: 20px;"></nz-divider>
       <app-coming-soon></app-coming-soon>
-      <div style="width: 100%;height: 15px;"><span routerLink="/list/1" style="float: right;cursor:pointer;">更多>></span></div>
+      <div style="width: 100%;height: 15px;"><span routerLink="/list/comingSoon" style="float: right;cursor:pointer;">更多>></span></div>
 
-      <nz-divider nzText="新片热播榜" nzOrientation="left"></nz-divider>
+      <nz-divider nzText="新片热播榜" nzOrientation="left" style="margin-top: 20px;"></nz-divider>
       <app-new-movies></app-new-movies>
     </div>
     <div class="col-md-3">
-      <nz-divider nzText="本周热映榜" nzOrientation="left"></nz-divider>
-      <div style="width: 100%;height: 15px;margin-bottom: 5px;margin-top: -18px;"><span routerLink="/list/1" style="float: right;cursor:pointer;font-size: 12px;">更多榜单>></span></div>
+      <nz-divider nzText="本周热映榜" nzOrientation="left" style="margin-bottom: 0px;"></nz-divider>
+      <div style="width: 100%;height: 15px;margin-bottom: 30px;"><span routerLink="/allRank" style="float: right;cursor:pointer;">更多榜单>></span></div>
+      <!--<div style="width: 100%;height: 20px;margin-bottom: 30px;" routerLink="/allRank" ><span style="float: right;cursor:pointer;font-size: 12px;">更多榜单>></span></div>-->
       <app-weekly></app-weekly>
 
       <nz-divider nzText="欧美榜" nzOrientation="right"></nz-divider>

@@ -28,6 +28,13 @@ import { RatComponent } from './pages/rat/rat.component';
 import { Top250Component } from './pages/top250/top250.component';
 import { USBoxComponent } from './pages/usbox/usbox.component';
 import { VideoComponent } from './pages/video/video.component';
+import { MovieListComponent } from './pages/movie-list/movie-list.component';
+import { AllRankComponent } from './all-rank/all-rank.component';
+import { UsboxListComponent } from './pages/usbox-list/usbox-list.component';
+import { WeeklyListComponent } from './pages/weekly-list/weekly-list.component';
+import { SubjectComponent } from './pages/subject/subject.component';
+import { CommentsComponent } from './pages/comments/comments.component';
+import { ReviewsComponent } from './pages/reviews/reviews.component';
 
 registerLocaleData(zh);
 
@@ -52,7 +59,14 @@ registerLocaleData(zh);
     RatComponent,
     Top250Component,
     USBoxComponent,
-    VideoComponent
+    VideoComponent,
+    MovieListComponent,
+    AllRankComponent,
+    UsboxListComponent,
+    WeeklyListComponent,
+    SubjectComponent,
+    CommentsComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,

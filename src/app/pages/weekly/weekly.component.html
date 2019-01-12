@@ -1,5 +1,5 @@
 <div *ngFor="let subject of weekly?.data" style="padding: 5px;">
-  <p style="padding-left:10px;padding-right:10px;"><span routerLink="/details/2"
+  <p style="padding-left:10px;padding-right:10px;"><span routerLink="/details/{{subject.subjectid}}"
                                                          style="cursor:pointer;">{{subject.subject_title}}</span><span
     style="padding-right: 0px;float: right;" *ngIf="subject.subject_delta != 0">{{subject.subject_delta}}</span>
     <i nz-icon type="rise" theme="outline" style="padding-right: 5px;float: right;color: #ff0c07;"
