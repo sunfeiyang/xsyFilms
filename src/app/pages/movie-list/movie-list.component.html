@@ -1,0 +1,28 @@
+<div *ngFor="let subject of Result_list?.data">
+  <table width="100%" class="">
+    <tbody>
+    <tr class="item">
+      <td width="100" valign="top">
+        <a class="nbg" routerLink="/details/{{subject.subjectid}}" title="{{subject.subject_title}}">
+          <img src="{{subject.subject_images}}" width="75" alt="{{subject.subject_title}}"
+               class="">
+        </a>
+      </td>
+      <td valign="top">
+        <div class="pl2">
+          <a routerLink="/details/{{subject.subjectid}}" class="">
+            {{subject.subject_title}}
+            / <span style="font-size:13px;">{{subject?.subject_original_title}}</span>
+          </a>
+          <p class="pl">保罗·布拉德利 / 乔纳森·阿里斯 / A·J·霍顿 / 弗勒尔·基思 / 劳拉·埃弗兰 / 阿伦·阿萨德 / 苏珊妮·伯登...</p>
+          <div class="star clearfix">
+            <span class="allstar35"></span>
+            <span class="rating_nums">7.2</span>
+            <span class="pl">(24702人评价)</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <hr></div>
