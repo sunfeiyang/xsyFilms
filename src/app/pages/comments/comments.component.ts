@@ -11,7 +11,7 @@ export class CommentsComponent implements OnInit {
 
   comments: Result;
 
-  url = '/yy/subject/comments/';
+  url = '/yy/getSubject/comments/';
 
   constructor(private http: HttpClient,
               private route: ActivatedRoute) { }
