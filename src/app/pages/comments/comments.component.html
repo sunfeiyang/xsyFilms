@@ -7,7 +7,7 @@
         nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
         nzDescription="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.comments_content}}">
         <ng-template #nzTitle>
-          <a>{{item.famousname}}</a>
+          <a *ngFor="let author of item.comments_movie_author">{{author.author_name}}</a>
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>

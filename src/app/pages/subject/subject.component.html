@@ -14,7 +14,24 @@
             {{subject?.subject_title}}
             / <span style="font-size:13px;">{{subject?.subject_original_title}}</span>
           </a>
-          <p class="pl">保罗·布拉德利 / 乔纳森·阿里斯 / A·J·霍顿 / 弗勒尔·基思 / 劳拉·埃弗兰 / 阿伦·阿萨德 / 苏珊妮·伯登...</p>
+          <div>
+            <span>导演：</span>
+            <span *ngFor="let cast of subject?.subject_casts let i = index">
+              <span class="pl" *ngIf="cast?.casts_type === '1'">{{cast?.casts_name}}</span>
+            </span>
+          </div>
+          <div>
+            <span>编剧：</span>
+            <span *ngFor="let cast of subject?.subject_casts let i = index">
+            <span class="pl" *ngIf="cast?.casts_type === '2'">{{cast?.casts_name}}</span>
+            </span>
+          </div>
+          <div>
+            <span>演员：</span>
+            <span *ngFor="let cast of subject?.subject_casts let i = index">
+              <span *ngIf="i != 0 && cast?.casts_type === '3'">、</span><span class="pl" *ngIf="cast?.casts_type === '3'">{{cast?.casts_name}}</span>
+            </span>
+          </div>
           <div class="star clearfix">
             <span class="allstar35"></span>
             <span class="rating_nums">7.2</span>
