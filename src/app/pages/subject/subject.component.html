@@ -1,62 +1,140 @@
-<div *ngFor="let subject of subjectDetails?.data let i = index" >
-  <table width="100%" class="">
-    <tbody>
-    <tr class="item">
-      <td width="100" valign="top">
-        <a class="nbg" href="https://movie.douban.com/subject/30414462/" title="{{subject?.subject_title}}">
-          <img src="{{subject?.subject_images.images_small}}" width="75" alt="{{subject?.subject_title}}"
-               class="">
-        </a>
-      </td>
-      <td valign="top">
-        <div class="pl2">
-          <a href="https://movie.douban.com/subject/30414462/" class="">
-            {{subject?.subject_title}}
-            / <span style="font-size:13px;">{{subject?.subject_original_title}}</span>
-          </a>
-          <div>
-            <span>导演：</span>
-            <span *ngFor="let cast of subject?.subject_casts let i = index">
+<div *ngFor="let subject of subjectDetails?.data let i = index">
+  <nz-layout>
+    <!--<nz-sider>left sidebar</nz-sider>-->
+    <nz-content>
+
+      <table width="95%" class="">
+        <tbody>
+        <tr class="item">
+          <td width="120" valign="top">
+            <a class="nbg" href="{{subject.subject_alt}}" title="{{subject?.subject_title}}">
+              <img src="{{subject?.subject_images.images_small}}" width="95" alt="{{subject?.subject_title}}"
+                   class="">
+            </a>
+          </td>
+          <td valign="top">
+            <div class="pl2">
+              <a href="{{subject.subject_alt}}" class="">
+                {{subject?.subject_title}}
+                / <span style="font-size:13px;">{{subject?.subject_original_title}}</span>
+              </a>
+              <div>
+                <span>导演：</span>
+                <span *ngFor="let cast of subject?.subject_casts let i = index">
               <span class="pl" *ngIf="cast?.casts_type === '1'">{{cast?.casts_name}}</span>
             </span>
-          </div>
-          <div>
-            <span>编剧：</span>
-            <span *ngFor="let cast of subject?.subject_casts let i = index">
+              </div>
+              <div>
+                <span>编剧：</span>
+                <span *ngFor="let cast of subject?.subject_casts let i = index">
             <span class="pl" *ngIf="cast?.casts_type === '2'">{{cast?.casts_name}}</span>
             </span>
-          </div>
-          <div>
-            <span>演员：</span>
-            <span *ngFor="let cast of subject?.subject_casts let i = index">
-              <span *ngIf="i != 0 && cast?.casts_type === '3'">、</span><span class="pl" *ngIf="cast?.casts_type === '3'">{{cast?.casts_name}}</span>
+              </div>
+              <div>
+                <span>演员：</span>
+                <span *ngFor="let cast of subject?.subject_casts let i = index">
+              <span *ngIf="i != 0 && cast?.casts_type === '3'">、</span><span class="pl"
+                                                                             *ngIf="cast?.casts_type === '3'">{{cast?.casts_name}}</span>
             </span>
+              </div>
+              <div>
+                <span>类型：{{subject?.subject_genres}}</span>
+              </div>
+              <div>
+                <span>语言：{{subject?.subject_languages}}</span>
+              </div>
+              <div>
+                <span>上映日期：{{subject?.subject_pubdate}}</span>
+              </div>
+              <div>
+                <span>时长：{{subject?.subject_durations}}</span>
+              </div>
+              <div>
+                <span>别名：{{subject?.subject_aka}}</span>
+              </div>
+              <div class="star clearfix">
+                <span class="allstar35"></span>
+                <span class="rating_nums">7.2</span>
+                <span class="pl">(24702人评价)</span>
+              </div>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </nz-content>
+    <nz-sider>
+      <div  *ngFor="let rat of subject.subject_rat">
+        <div class="rating_wrap clearbox" rel="v:rating">
+          <div class="clearfix">
+            <div class="rating_logo ll">豆瓣评分</div>
+            <!--<div class="output-btn-wrap rr" style="">-->
+              <!--<img-->
+                <!--src="https://img3.doubanio.com/f/movie/692e86756648f29457847c5cc5e161d6f6b8aaac/pics/movie/reference.png">-->
+              <!--<a class="download-output-image" href="#">引用</a>-->
+            <!--</div>-->
           </div>
-          <div class="star clearfix">
-            <span class="allstar35"></span>
-            <span class="rating_nums">7.2</span>
-            <span class="pl">(24702人评价)</span>
+          <div class="rating_self clearfix" typeof="v:Rating">
+            <strong class="ll rating_num" property="v:average">{{rat.rat_average}}</strong>
+            <span property="v:best" content="10.0"></span>
+            <div class="rating_right ">
+              <div class="ll bigstar bigstar35"></div>
+              <div class="rating_sum">
+                <a href="collections" class="rating_people"><span property="v:votes">{{rat.rat_total}}</span>人评价</a>
+              </div>
+            </div>
           </div>
+          <div class="ratings-on-weight">
+
+            <div class="item">
+
+        <span class="stars5 starstop" title="力荐">
+            5星
+        </span>
+              <span class="rating_per">{{rat.rat_details5}}</span>
+              <br>
+            </div>
+            <div class="item">
+
+        <span class="stars4 starstop" title="推荐">
+            4星
+        </span>
+              <span class="rating_per">{{rat.rat_details4}}</span>
+              <br>
+            </div>
+            <div class="item">
+
+        <span class="stars3 starstop" title="还行">
+            3星
+        </span>
+              <span class="rating_per">{{rat.rat_details3}}</span>
+              <br>
+            </div>
+            <div class="item">
+
+        <span class="stars2 starstop" title="较差">
+            2星
+        </span>
+              <span class="rating_per">{{rat.rat_details2}}</span>
+              <br>
+            </div>
+            <div class="item">
+
+        <span class="stars1 starstop" title="很差">
+            1星
+        </span>
+              <span class="rating_per">{{rat.rat_details1}}</span>
+              <br>
+            </div>
+          </div>
+
         </div>
-      </td>
-    </tr>
-    <!--<tr class="item">-->
-      <!--<td valign="top">-->
-        <!--<div class="pl2">-->
-          <!--<a href="https://movie.douban.com/subject/30414462/" class="">-->
-            <!--{{subject?.subject_title}}-->
-            <!--/ <span style="font-size:13px;">黑镜：2018圣诞特别篇</span>-->
-          <!--</a>-->
-          <!--<p class="pl">保罗·布拉德利 / 乔纳森·阿里斯 / A·J·霍顿 / 弗勒尔·基思 / 劳拉·埃弗兰 / 阿伦·阿萨德 / 苏珊妮·伯登...</p>-->
-          <!--<div class="star clearfix">-->
-            <!--<span class="allstar35"></span>-->
-            <!--<span class="rating_nums">7.2</span>-->
-            <!--<span class="pl">(24702人评价)</span>-->
-          <!--</div>-->
+        <!--<div class="rating_betterthan">-->
+          <!--好于 <a href="/typerank?type_name=科幻&amp;type=17&amp;interval_id=70:60&amp;action=">68% 科幻片</a><br>-->
+          <!--好于 <a href="/typerank?type_name=动作&amp;type=5&amp;interval_id=70:60&amp;action=">69% 动作片</a><br>-->
         <!--</div>-->
-      <!--</td>-->
-    <!--</tr>-->
-    </tbody>
-  </table>
+      </div>
+    </nz-sider>
+  </nz-layout>
   <hr>
 </div>
