@@ -1,3 +1,57 @@
-<p>
-  reviews works!
-</p>
+<!--<nz-collapse *ngFor="let reviewsDetails of reviews?.data; let i = index">-->
+  <!--<nz-collapse-panel *ngFor="let author of reviewsDetails.reviews_movie_author" [nzHeader]="reviewsDetails.reviews_title" [nzActive]="i < 5">-->
+    <!--&lt;!&ndash; 评论用户详情 &ndash;&gt;-->
+    <!--<nz-list-item>-->
+    <!--<nz-list-item-meta-->
+    <!--[nzTitle]="nzTitle"-->
+    <!--nzAvatar="{{author.author_avatar}}">-->
+    <!--<ng-template #nzTitle>-->
+    <!--<a href="{{author.author_alt}}">{{author.author_name}}</a>-->
+    <!--<h6>{{author.author_signature}}</h6>-->
+    <!--</ng-template>-->
+    <!--</nz-list-item-meta>-->
+    <!--</nz-list-item>-->
+    <!--&lt;!&ndash; 概要 &ndash;&gt;-->
+    <!--<p>{{reviewsDetails.reviews_summary}}</p>-->
+    <!--<div>-->
+      <!--<nz-collapse>-->
+        <!--<nz-collapse-panel [nzHeader]="'【查看全部】'"  [nzActive]="false">-->
+          <!--<p [innerHTML]="reviewsDetails.reviews_content"></p>-->
+        <!--</nz-collapse-panel>-->
+      <!--</nz-collapse>-->
+    <!--</div>-->
+  <!--</nz-collapse-panel>-->
+<!--</nz-collapse>-->
+<!--<nz-list *ngIf="dic?.code === 1001">-->
+  <!--<p style="text-align: center;height: 40px;line-height: 40px;">{{dic?.msg}}</p>-->
+<!--</nz-list>-->
+<nz-list
+  [nzDataSource]="reviews?.data"
+  [nzItemLayout]="'vertical'"
+  [nzRenderItem]="item"
+  [nzPagination]="pagination"
+  [nzFooter]="footer">
+  <ng-template #item let-item>
+    <nz-list-item [nzContent]="item.reviews_summary" [nzActions]="[likeAction,dislike]" [nzExtra]="extra">
+      <!--<ng-template #starAction><i nz-icon type="star-o" style="margin-right: 8px;"></i> {{item.reviews_useless_count}}</ng-template>-->
+      <ng-template #likeAction><i nz-icon type="like-o" style="margin-right: 8px;"></i> {{item.reviews_useful_count}}</ng-template>
+      <ng-template #dislike><i nz-icon type="dislike" style="margin-right: 8px;"></i> {{item.reviews_useless_count}}</ng-template>
+      <nz-list-item-meta
+        *ngFor="let author of item.reviews_movie_author"
+        [nzAvatar]="author.author_avatar"
+        [nzTitle]="nzTitle"
+        [nzDescription]="author.author_signature">
+        <ng-template #nzTitle><a href="{{author.author_avatar}}">{{author.author_name}}</a></ng-template>
+      </nz-list-item-meta>
+      <!--<ng-template #extra>-->
+        <!--<img width="272" alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png">-->
+      <!--</ng-template>-->
+    </nz-list-item>
+  </ng-template>
+  <ng-template #footer>
+    <div><b>ant design</b> footer part</div>
+  </ng-template>
+  <ng-template #pagination>
+    <nz-pagination [nzPageIndex]="1" [nzTotal]="50" (nzPageIndexChange)="loadData($event)"></nz-pagination>
+  </ng-template>
+</nz-list>

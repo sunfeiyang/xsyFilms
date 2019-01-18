@@ -2,12 +2,13 @@
 <nz-list [nzDataSource]="comments?.data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
   <ng-template #item let-item>
     <nz-list-item>
-      <nz-list-item-meta
+      <nz-list-item-meta *ngFor="let author of item.comments_movie_author"
         [nzTitle]="nzTitle"
-        nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+        nzAvatar="{{author.author_avatar}}"
         nzDescription="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.comments_content}}">
         <ng-template #nzTitle>
-          <a *ngFor="let author of item.comments_movie_author">{{author.author_name}}</a>
+          <a href="{{author.author_alt}}">{{author.author_name}}</a>
+          <h6>{{author.author_signature}}</h6>
         </ng-template>
       </nz-list-item-meta>
     </nz-list-item>
