@@ -29,8 +29,7 @@
   [nzDataSource]="reviews?.data"
   [nzItemLayout]="'vertical'"
   [nzRenderItem]="item"
-  [nzPagination]="pagination"
-  [nzFooter]="footer">
+>
   <ng-template #item let-item>
     <nz-list-item [nzContent]="item.reviews_summary" [nzActions]="[likeAction,dislike]" [nzExtra]="extra">
       <!--<ng-template #starAction><i nz-icon type="star-o" style="margin-right: 8px;"></i> {{item.reviews_useless_count}}</ng-template>-->

@@ -2,11 +2,10 @@
   <nz-layout>
     <!--<nz-sider>left sidebar</nz-sider>-->
     <nz-content>
-
-      <table width="95%" class="">
+      <table width="98%" class="">
         <tbody>
         <tr class="item">
-          <td width="120" valign="top">
+          <td width="105" valign="top">
             <a class="nbg" href="{{subject.subject_alt}}" title="{{subject?.subject_title}}">
               <img src="{{subject?.subject_images.images_small}}" width="95" alt="{{subject?.subject_title}}"
                    class="">
@@ -52,18 +51,18 @@
               <div>
                 <span>别名：{{subject?.subject_aka}}</span>
               </div>
-              <div class="star clearfix">
-                <span class="allstar35"></span>
-                <span class="rating_nums">7.2</span>
-                <span class="pl">(24702人评价)</span>
-              </div>
+              <!--<div class="star clearfix">-->
+                <!--<span class="allstar35"></span>-->
+                <!--<span class="rating_nums">7.2</span>-->
+                <!--<span class="pl">(24702人评价)</span>-->
+              <!--</div>-->
             </div>
           </td>
         </tr>
         </tbody>
       </table>
     </nz-content>
-    <nz-sider>
+    <nz-sider nzWidth="90">
       <div  *ngFor="let rat of subject.subject_rat">
         <div class="rating_wrap clearbox" rel="v:rating">
           <div class="clearfix">
@@ -136,5 +135,4 @@
       </div>
     </nz-sider>
   </nz-layout>
-  <hr>
 </div>
