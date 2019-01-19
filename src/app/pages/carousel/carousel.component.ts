@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
-  array = [ '1', '2', '3', 4 ];
+  array = [ '/image/carousel/20180917115149_494.jpg', '/image/carousel/20181109150642_431.jpg', '/image/carousel/20181224114240_109.jpg', '/image/carousel/20190103164152_386.jpg' ];
 
   constructor() { }
 
