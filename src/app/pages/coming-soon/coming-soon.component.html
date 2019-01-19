@@ -1,5 +1,5 @@
 <div *ngFor="let subject of comingSoon?.data let i = index" class="box" [hidden]="i >= 12" routerLink="/details/{{subject.subjectid}}" style="cursor:pointer;">
-  <div><img alt="example" src="{{subject.subject_images}}" class="image"/></div>
+  <div><img alt="example" src="/image/{{subject.subject_images}}" class="image"/></div>
   <div><h4 class="title" title="{{subject.subject_title}}">{{subject.subject_title}}</h4></div>
   <div><span class="genres">{{subject.subject_genres}}</span></div>
 </div>
