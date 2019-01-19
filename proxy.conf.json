@@ -1,11 +1,20 @@
 {
-  "/yy":{
-    "target":"http://127.0.0.1:8888",
-    "secure":false,
-    "logLevel":"debug",
-    "changeOrigin":true,
-    "pathRewrite":{
-      "^/yy":"/yy"
+  "/yy": {
+    "target": "http://127.0.0.1:8888",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/yy": "/yy"
+    }
+  },
+  "/image": {
+    "target": "http://127.0.0.1:8888",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/image": "/image"
     }
   }
 }
