@@ -14,6 +14,7 @@ export class MovieService {
   url_comingSoon = '/yy/getcomingsoon?count=20&start=0';
   url_newMovies = '/yy/getnewMovies';
   url_usbox = '/yy/getusbox';
+  url_top250 = '/yy/gettop250?count=20&start=0';
   url_reviews = '/yy/getSubject/reviews/';
   url_comments = '/yy/getSubject/comments/';
 
@@ -33,6 +34,8 @@ export class MovieService {
       return this.getMovie(this.url_newMovies);
     } else if (m_type === 'usbox') {
       return this.getMovie(this.url_usbox);
+    } else if (m_type === 'top250') {
+      return this.getMovie(this.url_top250);
     }
   }
 
