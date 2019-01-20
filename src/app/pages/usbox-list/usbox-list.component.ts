@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {MovieService, Result} from '../../servie/movie.service';
 
 @Component({
   selector: 'app-usbox-list',
@@ -10,21 +10,17 @@ export class UsboxListComponent implements OnInit {
 
   usbox: Result;
 
-  url = '/yy/getusbox';
+  constructor(private movieService: MovieService) { }
 
-  constructor(private http: HttpClient) { }
+  // 数据通过service请求
+  getPage(): void {
+    const m_type = 'usbox';
+    this.movieService.getData(m_type)
+      .subscribe(res => this.usbox = res);
+  }
 
   ngOnInit() {
-    this.http.get(this.url).subscribe(res => {
-      this.usbox = <Result>res;
-    });
+    this.getPage();
   }
 
 }
-
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
-}
-

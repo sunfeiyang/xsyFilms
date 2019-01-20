@@ -18,8 +18,6 @@ import {SearchFormComponent} from './pages/search-form/search-form.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { ListComponent } from './list/list.component';
-import { RankComponent } from './rank/rank.component';
-import { CardComponent } from './pages/card/card.component';
 import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { PhotosComponent } from './pages/photos/photos.component';
 import { NewMoviesComponent } from './pages/new-movies/new-movies.component';
@@ -50,8 +48,6 @@ registerLocaleData(zh);
     HomeComponent,
     DetailsComponent,
     ListComponent,
-    RankComponent,
-    CardComponent,
     ComingSoonComponent,
     PhotosComponent,
     NewMoviesComponent,

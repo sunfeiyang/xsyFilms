@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {MovieService, Result} from '../../servie/movie.service';
 
 @Component({
   selector: 'app-new-movies',
@@ -10,20 +10,17 @@ export class NewMoviesComponent implements OnInit {
 
   newMovies: Result;
 
-  url = '/yy/getnewMovies';
+  constructor(private movieService: MovieService) { }
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
-    this.http.get(this.url).subscribe(res => {
-      this.newMovies = <Result>res;
-    });
+  // 数据通过service请求
+  getPage(): void {
+    const m_type = 'newMovies';
+    this.movieService.getData(m_type)
+      .subscribe(res => this.newMovies = res);
   }
 
-}
+  ngOnInit() {
+    this.getPage();
+  }
 
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
 }

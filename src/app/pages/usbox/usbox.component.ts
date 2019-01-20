@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {MovieService, Result} from '../../servie/movie.service';
 
 @Component({
   selector: 'app-usbox',
@@ -8,22 +8,19 @@ import {HttpClient} from '@angular/common/http';
 })
 export class USBoxComponent implements OnInit {
 
-  weekly: Result;
+  usbox: Result;
 
-  url = '/yy/getusbox';
+  constructor(private movieService: MovieService) { }
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
-    this.http.get(this.url).subscribe(res => {
-      this.weekly = <Result>res;
-    });
+  // 数据通过service请求
+  getPage(): void {
+    const m_type = 'usbox';
+    this.movieService.getData(m_type)
+      .subscribe(res => this.usbox = res);
   }
 
-}
+  ngOnInit() {
+    this.getPage();
+  }
 
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
 }

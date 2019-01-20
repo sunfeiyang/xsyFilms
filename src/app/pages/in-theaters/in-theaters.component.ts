@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {MovieService, Result} from '../../servie/movie.service';
 
 @Component({
   selector: 'app-in-theaters',
@@ -10,20 +10,24 @@ export class InTheatersComponent implements OnInit {
 
   inTheaters: Result;
 
-  url = '/yy/getinTheaters?count=20&start=0';
+  constructor(private movieService: MovieService) { }
 
-  constructor(private http: HttpClient) { }
+  // 数据通过service请求
+  getPage(): void {
+    const m_type = 'inTheaters';
+    // console.log(this.route.snapshot.paramMap);
+    // const value_search = this.route.snapshot.paramMap.get('serachValue');
+    this.movieService.getData(m_type)
+      .subscribe(res => this.inTheaters = res);
+  }
 
   ngOnInit() {
-    this.http.get(this.url).subscribe(res => {
-      this.inTheaters = <Result>res;
-    });
+    this.getPage();
+    // 下面的是本页面直接发送http请求的方法
+    // this.http.get(this.url).subscribe(res => {
+    //   this.inTheaters = <Result>res;
+    // });
   }
 
 }
 
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
-}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {MovieService, Result} from '../../servie/movie.service';
 
 @Component({
   selector: 'app-coming-soon',
@@ -10,20 +10,17 @@ export class ComingSoonComponent implements OnInit {
 
   comingSoon: Result;
 
-  url = '/yy/getcomingsoon?count=20&start=0';
+  constructor(private movieService: MovieService) { }
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit() {
-    this.http.get(this.url).subscribe(res => {
-      this.comingSoon = <Result>res;
-    });
+  // 数据通过service请求
+  getPage(): void {
+    const m_type = 'comingSoon';
+    this.movieService.getData(m_type)
+      .subscribe(res => this.comingSoon = res);
   }
 
-}
+  ngOnInit() {
+    this.getPage();
+  }
 
-export class Result {
-  code: number;
-  msg: String;
-  data: JSON;
 }
