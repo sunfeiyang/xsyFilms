@@ -20,20 +20,19 @@
               <div>
                 <span>导演：</span>
                 <span *ngFor="let cast of subject?.subject_casts let i = index">
-              <span class="pl" *ngIf="cast?.casts_type === '1'">{{cast?.casts_name}}</span>
+              <span class="pl" *ngIf="cast?.casts_type === '1'">[{{cast?.casts_name}}]</span>
             </span>
               </div>
               <div>
                 <span>编剧：</span>
                 <span *ngFor="let cast of subject?.subject_casts let i = index">
-            <span class="pl" *ngIf="cast?.casts_type === '2'">{{cast?.casts_name}}</span>
+            <span class="pl" *ngIf="cast?.casts_type === '2'">[{{cast?.casts_name}}]</span>
             </span>
               </div>
               <div>
                 <span>演员：</span>
                 <span *ngFor="let cast of subject?.subject_casts let i = index">
-              <span *ngIf="i != 0 && cast?.casts_type === '3'">、</span><span class="pl"
-                                                                             *ngIf="cast?.casts_type === '3'">{{cast?.casts_name}}</span>
+              <span class="pl" *ngIf="cast?.casts_type === '3'">[{{cast?.casts_name}}]</span>
             </span>
               </div>
               <div>
@@ -90,7 +89,7 @@
         <span class="stars5 starstop" title="力荐">
             5星
         </span>
-              <span class="rating_per">{{rat.rat_details5}}</span>
+              <span class="rating_per">{{rat.rat_details5 | number}}</span>
               <br>
             </div>
             <div class="item">
@@ -98,7 +97,7 @@
         <span class="stars4 starstop" title="推荐">
             4星
         </span>
-              <span class="rating_per">{{rat.rat_details4}}</span>
+              <span class="rating_per">{{rat.rat_details4 | number}}</span>
               <br>
             </div>
             <div class="item">
@@ -106,7 +105,7 @@
         <span class="stars3 starstop" title="还行">
             3星
         </span>
-              <span class="rating_per">{{rat.rat_details3}}</span>
+              <span class="rating_per">{{rat.rat_details3 | number}}</span>
               <br>
             </div>
             <div class="item">
@@ -114,7 +113,7 @@
         <span class="stars2 starstop" title="较差">
             2星
         </span>
-              <span class="rating_per">{{rat.rat_details2}}</span>
+              <span class="rating_per">{{rat.rat_details2 | number}}</span>
               <br>
             </div>
             <div class="item">
@@ -122,7 +121,7 @@
         <span class="stars1 starstop" title="很差">
             1星
         </span>
-              <span class="rating_per">{{rat.rat_details1}}</span>
+              <span class="rating_per">{{rat.rat_details1 | number}}</span>
               <br>
             </div>
           </div>

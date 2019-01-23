@@ -8,7 +8,7 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { registerLocaleData } from '@angular/common';
+import {HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { CarouselComponent } from './pages/carousel/carousel.component';
 import { FilmsCardComponent } from './pages/films-card/films-card.component';
@@ -33,6 +33,7 @@ import { WeeklyListComponent } from './pages/weekly-list/weekly-list.component';
 import { SubjectComponent } from './pages/subject/subject.component';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { ReviewsComponent } from './pages/reviews/reviews.component';
+import {MovieService} from './servie/movie.service';
 
 registerLocaleData(zh);
 
@@ -73,7 +74,9 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN },
+    { provide: LocationStrategy, useClass: HashLocationStrategy, },
+    MovieService, { provide: LocationStrategy, useClass: HashLocationStrategy, }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

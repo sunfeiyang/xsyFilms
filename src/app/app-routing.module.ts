@@ -10,7 +10,8 @@ const routes: Routes = [
   {path: 'details/:id', component: DetailsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'list/:type', component: ListComponent},
-  {path: 'allRank', component: AllRankComponent}
+  {path: 'allRank', component: AllRankComponent},
+  {path: '*', redirectTo: '/xsyFilms', pathMatch: 'full' }
 ];
 
 @NgModule({
