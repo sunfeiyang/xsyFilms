@@ -75,6 +75,7 @@ registerLocaleData(zh);
     BrowserAnimationsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN },
+    // 增加provide 优化刷新404问题
     { provide: LocationStrategy, useClass: HashLocationStrategy, },
     MovieService, { provide: LocationStrategy, useClass: HashLocationStrategy, }],
   bootstrap: [AppComponent]
