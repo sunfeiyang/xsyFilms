@@ -34,6 +34,7 @@ import { SubjectComponent } from './pages/subject/subject.component';
 import { CommentsComponent } from './pages/comments/comments.component';
 import { ReviewsComponent } from './pages/reviews/reviews.component';
 import {MovieService} from './servie/movie.service';
+import { CastsComponent } from './casts/casts.component';
 
 registerLocaleData(zh);
 
@@ -63,7 +64,8 @@ registerLocaleData(zh);
     WeeklyListComponent,
     SubjectComponent,
     CommentsComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    CastsComponent
   ],
   imports: [
     BrowserModule,

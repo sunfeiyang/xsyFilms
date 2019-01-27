@@ -17,6 +17,7 @@ export class MovieService {
   url_top250 = '/yy/gettop250?count=20&start=0';
   url_reviews = '/yy/getSubject/reviews/';
   url_comments = '/yy/getSubject/comments/';
+  url_photos = '/yy/getSubject/photos/';
 
   // 数据请求方法
   getMovie(url): Observable<Result> {
@@ -45,6 +46,8 @@ export class MovieService {
       return this.getMovie(this.url_reviews + details_id);
     } else if (details_type === 'comments') {
       return this.getMovie(this.url_comments + details_id);
+    } else if (details_type === 'photos') {
+      return this.getMovie(this.url_photos + details_id);
     }
   }
 }
