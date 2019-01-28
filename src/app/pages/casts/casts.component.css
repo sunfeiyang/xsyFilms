@@ -1,0 +1,22 @@
+.outer-container{
+  height: 155px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.inner-container{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: -15px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+img{
+  height: 140px;
+  padding: 5px;
+}
