@@ -15,12 +15,15 @@ export class MovieService {
   url_newMovies = '/yy/getnewMovies';
   url_usbox = '/yy/getusbox';
   url_top250 = '/yy/gettop250?count=20&start=0';
+  url_details = '/yy/getSubject/';
   url_reviews = '/yy/getSubject/reviews/';
   url_comments = '/yy/getSubject/comments/';
   url_photos = '/yy/getSubject/photos/';
   url_casts = '/yy/getSubject/casts/';
   url_videos = '/yy/getSubject/videos/';
   url_prevue = '/yy/getSubject/prevue/';
+  url_rat = '/yy/getSubject/rat/';
+
 
   // 数据请求方法
   getMovie(url): Observable<Result> {
@@ -45,7 +48,9 @@ export class MovieService {
 
   // 根据所需数据类型及相应的参数，请求所需的数据
   getDetails(details_type: String, details_id: String) {
-    if (details_type === 'reviews') {
+    if (details_type === 'details') {
+      return this.getMovie(this.url_details + details_id);
+    } else if (details_type === 'reviews') {
       return this.getMovie(this.url_reviews + details_id);
     } else if (details_type === 'comments') {
       return this.getMovie(this.url_comments + details_id);
@@ -57,6 +62,8 @@ export class MovieService {
       return this.getMovie(this.url_videos + details_id);
     } else if (details_type === 'prevue') {
       return this.getMovie(this.url_prevue + details_id);
+    } else if (details_type === 'rat') {
+      return this.getMovie(this.url_rat + details_id);
     }
   }
 }
